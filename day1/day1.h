@@ -5,6 +5,6 @@
 #ifndef ADVENTOFCODE2020_DAY1_H
 #define ADVENTOFCODE2020_DAY1_H
 
-int day1();
+void day1();
 
 #endif ADVENTOFCODE2020_DAY1_H

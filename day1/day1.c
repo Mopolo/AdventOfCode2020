@@ -22,7 +22,7 @@ int findResult(int index, int *numbers) {
     return 0;
 }
 
-int day1() {
+void day1() {
     printf("Day 1\n");
 
     FILE *input = fopen("../day1/input.txt", "r");
@@ -56,7 +56,6 @@ int day1() {
 
     printf("Result: %d", findResult(index, numbers));
 
+    fclose(input);
     free(numbers);
-
-    return 0;
 }

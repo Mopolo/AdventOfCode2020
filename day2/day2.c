@@ -56,11 +56,27 @@ int isValid(Line line) {
         }
     }
 
-    if (quantity >= line.min && quantity <= line.max) {
-        return 1;
+    return quantity >= line.min && quantity <= line.max;
+}
+
+int isValidPart2(Line line) {
+    int quantity = 0;
+    int positionMin = line.min - 1;
+    int positionMax = line.max - 1;
+
+    if (positionMin <= strlen(line.password)
+        && line.password[positionMin] == line.letter
+    ) {
+        quantity++;
     }
 
-    return 0;
+    if (positionMax <= strlen(line.password)
+        && line.password[positionMax] == line.letter
+    ) {
+        quantity++;
+    }
+
+    return quantity == 1;
 }
 
 void day2() {
@@ -83,7 +99,7 @@ void day2() {
         printf(" Max: %d", l.max);
         printf(" Password: %s\n", l.password);
 
-        if (isValid(l) == 1) {
+        if (isValidPart2(l) == 1) {
             validPasswords++;
         }
     }

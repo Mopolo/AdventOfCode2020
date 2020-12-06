@@ -38,22 +38,37 @@ void day3() {
 
     fclose(input);
 
-    Point move = {.x = 3, .y = 1};
+    Point moves[] = {
+            {.x = 1, .y = 1},
+            {.x = 3, .y = 1},
+            {.x = 5, .y = 1},
+            {.x = 7, .y = 1},
+            {.x = 1, .y = 2},
+    };
 
-    int trees = 0;
+    int trees;
+    long total = 1;
 
-    while (map.y < index) {
-        if (map.lines[map.y][map.x] == '#') {
-            trees++;
+    for (int i = 0; i < 5; i++) {
+        map.x = 0;
+        map.y = 0;
+        trees = 0;
+
+        while (map.lines[map.y]) {
+            if (map.lines[map.y][map.x] == '#') {
+                trees++;
+            }
+
+            map.x += moves[i].x;
+            map.y += moves[i].y;
+
+            if (map.x > map.width) {
+                map.x = map.x - map.width - 1;
+            }
         }
 
-        map.x += move.x;
-        map.y += move.y;
-
-        if (map.x > map.width) {
-            map.x = map.x - map.width - 1;
-        }
+        total = total * trees;
     }
 
-    printf("Trees: %d\n", trees);
+    printf("Total: %ld\n", total);
 }

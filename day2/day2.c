@@ -2,27 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "day2.h"
-
-char** split(char* input, char* separator) {
-    char** parts;
-    int partsIndex = 0;
-
-    char *token = strtok(input, separator);
-
-    parts = malloc(sizeof(char*));
-
-    while (token) {
-        parts[partsIndex] = malloc(sizeof(token));
-
-        parts[partsIndex] = token;
-
-        token = strtok(NULL, separator);
-
-        partsIndex++;
-    }
-
-    return parts;
-}
+#include "../common/strings.h"
 
 Line process(char* input) {
     Line line;

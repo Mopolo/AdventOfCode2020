@@ -14,9 +14,9 @@ impl fmt::Display for Seat {
 }
 
 impl Seat {
-    pub fn id(&self) -> u128 {
-        let a = self.row as u128;
-        let b = self.column as u128;
+    pub fn id(&self) -> u16 {
+        let a = self.row as u16;
+        let b = self.column as u16;
 
         a * 8 + b
     }

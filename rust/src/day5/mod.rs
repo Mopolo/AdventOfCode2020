@@ -3,8 +3,8 @@ use std::fmt::Formatter;
 
 use crate::day5::range::Range;
 use crate::day5::seat::Seat;
-use crate::file::read_lines;
 use std::collections::{HashMap, BTreeMap};
+use crate::common::file::read_lines;
 
 mod range;
 mod seat;

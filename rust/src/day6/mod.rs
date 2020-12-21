@@ -15,17 +15,17 @@ fn handle(lines: Lines<BufReader<File>>) {
 
         println!("Line: {}", line);
 
-        group_strings.push(line.clone());
-
-        if line.len() == 0 {
-            total += Group::parse(group_strings.clone()).yeses();
+        if line.len().gt(&0) {
+            group_strings.push(line.clone());
+        } else {
+            total += Group::parse(group_strings.clone()).all_yeses();
 
             group_strings.clear();
         }
     }
 
     if group_strings.len() > 0 {
-        total += Group::parse(group_strings.clone()).yeses();
+        total += Group::parse(group_strings.clone()).all_yeses();
     }
 
     println!("Total: {}", total);
